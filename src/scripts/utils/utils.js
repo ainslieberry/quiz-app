@@ -1,11 +1,47 @@
-var test = 'test';
-var dog = 'dog';
-var cat = 'cat';
-var wonton = 'wonton';
-var tandy = 'tandy';
-var ghost = 'ghost is here. woo. Yeah.';
-function testUtil(){
-    console.log('Utils file loaded.')
-    return 2;
-}
-testUtil();
+var Utils = {
+    optionsModel: {
+        category: "",
+        type: "",
+        difficulty: "",
+        amount: ""
+    },
+
+    referenceData: {
+        difficulties: [
+            {
+                value: "any",
+                name: "Any"
+            },
+            {
+                value: "easy",
+                name: "Easy"
+            },
+            {
+                value: "medium",
+                name: "Medium"
+            },
+            {
+                value: "hard",
+                name: "Hard"
+            }
+        ],
+
+        type: [
+            {
+                value: "any",
+                name: "Any"
+            },
+            {
+                value: "multiple",
+                name: "Multiple Choice"
+            },
+            {
+                value: "boolean",
+                name: "True/False"
+            },
+        ],
+
+        
+    },
+
+};
