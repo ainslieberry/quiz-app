@@ -289,8 +289,20 @@ var Utils = {
             //Loop through answers for each answer
 
             for (var j = 0; j < Utils.questionsModel[i].answers.length; j++) {
-                var answer = $('<li>' + Utils.questionsModel[i].answers[j] + '</li>');
+                var answerInput = $('<input></input>');
+                var inputId = 100 * i + j;
+                answerInput.attr('id', inputId);
+                answerInput.attr('type', 'radio');
+                answerInput.attr('name', 100 * i);
+                answerInput.val(Utils.questionsModel[i].answers[j]);
+                var answerLabel = $('<label></label>');
+                answerLabel.text(Utils.questionsModel[i].answers[j]);
+                answerLabel.attr('for', inputId);
+                var answer = $('<li></li>');
+                answer.append(answerInput);
+                answer.append(answerLabel);
                 answers.append(answer);
+
                 console.log('answer', answer);
             };
             //combine questions and answers into order an print
