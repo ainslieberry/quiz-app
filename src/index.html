@@ -1,13 +1,37 @@
 <!doctype html>
 <html>
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <!-- css -->
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
     <!-- endcss -->
 </head>
+
 <body>
-<div>Hi people!</div>
+    <main>
+        <section id="options">
+            <form>
+                <p>Amount</p>
+                <input type="number" id="amount" min="1" max="50" value="10">
+                <p>categories</p>
+                <select id="categories"></select>
+                <p>Difficulty</p>
+                <select id="difficulty"></select>
+                <p>Type</p>
+                <select id="type"></select>
+            </form>
+            <button id="get-button">Get Questions</button>
+        </section>
+        <section id="quiz-container">
+            <p id="questions-container"><!--quesiton prints here--></p>
+            <ul id="answers-continer"><!--answers print here--></ul>
+            <!--Questions and Answers Return-->
+        </section>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 <!-- build:js -->
 <!-- These comment tags are for the gulp plugin "gulp-html-replace"-->
 <script src="scripts/utils/utils.js"></script>
@@ -15,4 +39,5 @@
 
 <!-- endbuild -->
 </body>
+
 </html>
