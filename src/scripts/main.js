@@ -3,8 +3,9 @@ $(document).ready(function() {
     Utils.populateDifficulties();
     Utils.populateType();
 
+    $('#submit').click(Utils.submit);
+
     $('#get-button').click(function() {
-        console.log('test');
         Utils.optionsModel.amount = $('#amount').val();
         Utils.optionsModel.category = $('#categories').val();
         Utils.optionsModel.difficulty = $('#difficulty').val();
@@ -35,7 +36,6 @@ $(document).ready(function() {
                     "correctAnswer": response.results[i].correct_answer
                 });
             };
-            console.log('Utils.questionsModel', Utils.questionsModel);
         }).then(Utils.populateResponse);
     });
 });

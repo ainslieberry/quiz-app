@@ -275,16 +275,16 @@ var Utils = {
     },
 
     "populateResponse": function () {
-        console.log('this', this);
+        console.log('Utils.questionModel', Utils.questionsModel);
         //Loop through questionsModel:
         for (var i = 0; i < Utils.questionsModel.length; i++) {
-            console.log('i', i);
             // Populate questions on Screen:
             //create jquery questionContainer and answersContainer to reference html element.
             var quizContainer = $('#quiz-container');
             var question = $('<p>' + Utils.questionsModel[i].question + '</p>');
             var answers = $('<ul></ul>');
-            console.log('question and answers', question, answers);
+            var questionId = i;
+            Utils.questionsModel[i].id = questionId;
 
             //Loop through answers for each answer
 
@@ -293,7 +293,7 @@ var Utils = {
                 var inputId = 100 * i + j;
                 answerInput.attr('id', inputId);
                 answerInput.attr('type', 'radio');
-                answerInput.attr('name', 100 * i);
+                answerInput.attr('name', questionId);
                 answerInput.val(Utils.questionsModel[i].answers[j]);
                 var answerLabel = $('<label></label>');
                 answerLabel.text(Utils.questionsModel[i].answers[j]);
@@ -302,12 +302,31 @@ var Utils = {
                 answer.append(answerInput);
                 answer.append(answerLabel);
                 answers.append(answer);
-
-                console.log('answer', answer);
-            };
+            }
             //combine questions and answers into order an print
             quizContainer.append(question).append(answers);
-        };
+        }
+        console.log('questionsModel', Utils.questionsModel);
+    },
+    //submit button event handeler
+    "submit": function () {
+        //get selected answers from user
+        for (var i = 0; i < Utils.questionsModel.length; i++) {
+            var questionId = Utils.questionsModel[i].id;
+            var selectedAnswer = $('#quiz-container [name=' + questionId + ']:checked').val();
+            if (selectedAnswer === Utils.questionsModel[i].correctAnswer){
+                console.log('correct', questionId);
+            }
+            console.log('selectedAnswer', selectedAnswer);
+        }
+
+        //store selected answers
+
+        //compare selected answers to correct answers
+
+        //var for correctAnswers
+        //for correct answers
+        console.log('submit');
     },
 
     "questionsModel": [
