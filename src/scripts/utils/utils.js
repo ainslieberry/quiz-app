@@ -314,30 +314,17 @@ var Utils = {
         for (var i = 0; i < Utils.questionsModel.length; i++) {
             var questionId = Utils.questionsModel[i].id;
             var correctId = Utils.questionsModel[i].correctAnswer;
-            var correctAnswer = selectedAnswer === Utils.questionsModel[i].correctAnswer;
-            var incorrectAnswer = selectedAnswer != Utils.questionsModel[i].correctAnswer;
             var selectedAnswer = $('#quiz-container [name=' + questionId + ']:checked').val();
             if (selectedAnswer === Utils.questionsModel[i].correctAnswer) {
-                console.log('correct', questionId);
-            }else(selectedAnswer === incorrectAnswer); {
-                console.log('incorrect', questionId);
+                var answeredRight = $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('answered-right');
+                console.log('correct', questionId, answeredRight, correctCounter);
+            } else if(selectedAnswer !== Utils.questionsModel[i].correctAnswer) {
+                var answeredWrong = $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('answered-wrong');
+                console.log('incorrect', questionId, answeredWrong);
             }
+
             console.log('selectedAnswer', selectedAnswer);
-        }
-        var showCorrect = $('#quiz-container' + correctAnswer).addClass("answeredRight");
-        var showIncorrect = $('#quiz-container' + incorrectAnswer).addClass("answeredWrong");
-        console.log('correct', showCorrect);
-        console.log('incorrect', showIncorrect);
-
-        //$('#quiz-container [name=' + correctAnswer])
-
-        //store selected answers
-
-        //compare selected answers to correct answers
-
-        //var for correctAnswers
-        //for correct answers
-        console.log('submit');
+        };
     },
 
     "questionsModel": [

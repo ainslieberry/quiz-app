@@ -4,3 +4,10 @@
 .red{
     color: #b00000;
 }
+
+.answered-right {
+    background-color: green;
+}
+.answered-wrong {
+    background-color: red;
+}
