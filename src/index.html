@@ -12,12 +12,18 @@
     <main>
         <header>
             <h1 id="heading">Welcome to Chucks Trivia Trickery</h1>
-            <P id="blurb">Hello and welcome to CTT,<br>here at CTT HQ, we are simple bonkers about delivering our online trivia fanatics with simply the best open source trivia questions availible!</P>
+            <P id="blurb">Hello and welcome to CTT,
+                <br>here at CTT HQ, we are simple bonkers about delivering our online trivia fanatics with simply the best open
+                source trivia questions availible!</P>
         </header>
         <section id="options">
-            <form>
-                <h2 id="instructions">Instructions</h2>
-                <p id="form-options">Please select from the availible option and press <i>Get Questions</i> once you are ready to play.<br>Once you are ready to submit and see you results please, press <i>Submit</i></p>
+            <h2 id="instructions">Instructions</h2>
+            <p>Please select from the availible option and press
+                <i>Get Questions</i> once you are ready to play.
+                <br>Once you are ready to submit and see you results please press
+                <i>Submit</i>
+            </p>
+            <form id="form-options">
                 <p>Amount</p>
                 <input type="number" id="amount" min="1" max="50" value="10">
                 <p>categories</p>
@@ -29,7 +35,7 @@
             </form>
             <button id="get-button">Get Questions</button>
             <output id="correct-score" name="correct-score"></output>
-            <label for="correct-score">Total Correct Score</label>
+            <label id="correct-score-label" for="correct-score">Total Correct Score</label>
         </section>
         <section>
             <form id="quiz-container">
@@ -37,6 +43,11 @@
             </form>
             <button id="submit">Submit</button>
         </section>
+        <footer>
+            <p id="copy-right">
+                <i>Copyright &copy Accenture Australia 2018, by Ainslie Berry.</i>
+            </p>
+        </footer>
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

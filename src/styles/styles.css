@@ -11,3 +11,106 @@
 .wrong-answer {
     background-color: red;
 }
+
+html {
+    display: flex;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-self: initial;
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+footer {
+    font-size: .75em;
+}
+
+#heading {
+    
+}
+
+#blurb {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-options {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#instructions {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#number {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    text-align: center;
+}
+
+#categories {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    text-align: center;
+}
+
+#difficulty {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    text-align: center;
+}
+
+#type {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    text-align: center;
+}
+
+#get-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#output {
+
+}
+
+#correct-score-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#correct-score {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#quiz-container {
+    outline: grey 1em;
+}
+
+#submit {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#copy-right {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
