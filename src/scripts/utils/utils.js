@@ -311,22 +311,24 @@ var Utils = {
     //submit button event handeler
     "submit": function () {
         //get selected answers from user
+        var userCorrectScore = 0;
         for (var i = 0; i < Utils.questionsModel.length; i++) {
             var questionId = Utils.questionsModel[i].id;
             var correctId = Utils.questionsModel[i].correctAnswer;
             var selectedAnswer = $('#quiz-container [name=' + questionId + ']:checked').val();
             if (selectedAnswer === Utils.questionsModel[i].correctAnswer) {
-                var answeredRight = $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('answered-right');
-                console.log('correct', questionId, answeredRight, correctCounter);
-            } else if(selectedAnswer !== Utils.questionsModel[i].correctAnswer) {
-                var answeredWrong = $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('answered-wrong');
+                $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('right-answer');
+                userCorrectScore++;
+                $('#correct-score').html(userCorrectScore);
+                console.log('correct', questionId);
+            } else if (selectedAnswer !== Utils.questionsModel[i].correctAnswer) {
+                var answeredWrong = $('#quiz-container [name=' + questionId + ']:checked').siblings('label').addClass('wrong-answer');
                 console.log('incorrect', questionId, answeredWrong);
             }
-
             console.log('selectedAnswer', selectedAnswer);
         };
+        
     },
-
     "questionsModel": [
     ],
 };

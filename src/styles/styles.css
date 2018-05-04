@@ -5,9 +5,9 @@
     color: #b00000;
 }
 
-.answered-right {
+.right-answer {
     background-color: green;
 }
-.answered-wrong {
+.wrong-answer {
     background-color: red;
 }

@@ -10,8 +10,14 @@
 
 <body>
     <main>
+        <header>
+            <h1 id="heading">Welcome to Chucks Trivia Trickery</h1>
+            <P id="blurb">Hello and welcome to CTT,<br>here at CTT HQ, we are simple bonkers about delivering our online trivia fanatics with simply the best open source trivia questions availible!</P>
+        </header>
         <section id="options">
             <form>
+                <h2 id="instructions">Instructions</h2>
+                <p id="form-options">Please select from the availible option and press <i>Get Questions</i> once you are ready to play.<br>Once you are ready to submit and see you results please, press <i>Submit</i></p>
                 <p>Amount</p>
                 <input type="number" id="amount" min="1" max="50" value="10">
                 <p>categories</p>
@@ -22,13 +28,14 @@
                 <select id="type"></select>
             </form>
             <button id="get-button">Get Questions</button>
+            <output id="correct-score" name="correct-score"></output>
+            <label for="correct-score">Total Correct Score</label>
         </section>
         <section>
             <form id="quiz-container">
-            <!--Questions and Answers Return-->
+                <!--Questions and Answers Return-->
             </form>
             <button id="submit">Submit</button>
-            <p id="score"></p>
         </section>
     </main>
 </body>
