@@ -3,7 +3,8 @@ var Utils = {
         "category": "",
         "type": "",
         "difficulty": "",
-        "amount": ""
+        "amount": "",
+        "token": ""
     },
 
     "populateCategories": function () {
@@ -327,10 +328,74 @@ var Utils = {
             }
             console.log('selectedAnswer', selectedAnswer);
         };
-        
+
     },
     "questionsModel": [
     ],
+
+    "getToken": function () {
+
+        //check to see if token exists
+        if (!localStorage.getItem('tokenKey')) {
+
+            //if token does not exist get token
+            return $.ajax({
+                "url": "https://opentdb.com/api_token.php?command=request"
+            }).then(function (response) {
+                if (response.response_code === 0) {
+                    //assign token return to localStorage
+                    localStorage.setItem('tokenKey', response.token);
+                    return response.token;
+                }
+            });
+        } else {
+            //if token exists then return token from local storage
+            return (async function emptyPromise() {
+                return localStorage.getItem('tokenKey');
+            })();
+            // //return new Promise( function(resolve, reject) {
+            //     resolve('test');
+            // });
+        }
+    },
+
+    "getQuestions": function (token) {
+        console.log('token', token);
+        
+        Utils.optionsModel.amount = $('#amount').val();
+        Utils.optionsModel.category = $('#categories').val();
+        Utils.optionsModel.difficulty = $('#difficulty').val();
+        Utils.optionsModel.type = $('#type').val();
+        Utils.optionsModel.token = token;
+
+        console.log('Utils.optionsModel', Utils.optionsModel);
+        $.ajax({
+            "url": "https://opentdb.com/api.php?amount=10",
+            "data": Utils.optionsModel
+        }).then(function populateQuestionsModel(response) {
+            console.log('response', response);
+            for (var i = 0; i < response.results.length; i++) {
+
+                var answers = response.results[i].incorrect_answers;
+
+                answers.push(response.results[i].correct_answer);
+
+                answers.sort(function () {
+                    return 0.5 - Math.random();
+                });
+
+                Utils.questionsModel.push({
+                    "category": response.results[i].category,
+                    "type": response.results[i].type,
+                    "difficulty": response.results[i].difficulty,
+                    "question": response.results[i].question,
+                    "answers": answers,
+                    "correctAnswer": response.results[i].correct_answer
+                });
+            };
+        }).then(Utils.populateResponse);
+    }
+
 };
 
 
